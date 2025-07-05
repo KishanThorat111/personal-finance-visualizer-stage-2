@@ -1,4 +1,9 @@
-# 💸 Personal Finance Visualizer
+Here is your **updated `README.md`** for **Stage 2** of the Personal Finance Visualizer — with all improvements documented and ready to push in your new Stage 2 GitHub repo.
+
+---
+
+```markdown
+# 💸 Personal Finance Visualizer — Stage 2
 
 A modern, responsive full-stack web application to **track personal expenses**. Built with **Next.js 14**, **MongoDB**, **Tailwind CSS**, **shadcn/ui**, **Recharts**, and animated with **Framer Motion** — it offers a sleek interface to manage transactions and visualize spending.
 
@@ -15,27 +20,36 @@ A modern, responsive full-stack web application to **track personal expenses**. 
 * 🌙 Dark mode + responsive UI
 * 🔔 Toast notifications using `sonner`
 
+### 🆕 Stage 2: Dashboard + Visual Analytics
+
+* 🧾 **Category-based tagging** of transactions
+* 🥧 **Top 10 Category-wise Expense Pie Chart** using `Recharts`
+* 💠 Glassmorphism design with rounded cards & hover tooltips
+* 🧮 Dashboard summary cards (Total, Most Recent)
+* 🎯 Responsive layout improvements with better section separation
+* 🧠 Hover-based tooltips and better font scaling for large data
+* 🧊 Cards prepared for Stage 3 integration
+
 > ✅ Fully functional and deployed live!
 
 ---
 
 ## 🌐 Live Demo
 
-🔗 [Live App on Vercel](https://personal-finance-visualizer.vercel.app)
+🔗 [Live App on Vercel](https://your-vercel-stage2-link.vercel.app)
 
-📦 [GitHub Repository](https://github.com/KishanThorat111/personal-finance-visualizer)
+📦 [GitHub Repository (Stage 2)](https://github.com/KishanThorat111/personal-finance-visualizer-stage2)
 
 ---
 
 ## 🧠 Tech Stack
 
-![License](https://img.shields.io/github/license/KishanThorat111/personal-finance-visualizer?style=flat-square)
+![License](https://img.shields.io/github/license/KishanThorat111/personal-finance-visualizer-stage2?style=flat-square)
 ![Next.js](https://img.shields.io/badge/Built%20with-Next.js-000?logo=nextdotjs&style=flat-square)
 ![Tailwind CSS](https://img.shields.io/badge/UI-TailwindCSS-06B6D4?logo=tailwindcss&logoColor=white&style=flat-square)
 ![MongoDB](https://img.shields.io/badge/Database-MongoDB-4EA94B?logo=mongodb&logoColor=white&style=flat-square)
 ![Vercel](https://img.shields.io/badge/Deploy-Vercel-black?logo=vercel&style=flat-square)
-![Stage](https://img.shields.io/badge/Stage-1-green?style=flat-square)
-
+![Stage](https://img.shields.io/badge/Stage-2-blue?style=flat-square)
 
 | Tech                | Usage                                    |
 | ------------------- | ---------------------------------------- |
@@ -51,34 +65,39 @@ A modern, responsive full-stack web application to **track personal expenses**. 
 
 ---
 
+### 📊 Dashboard Charts & Summary Cards
 
-### 🧾 Add & Edit Transactions
+| Component            | Description                                              |
+|----------------------|----------------------------------------------------------|
+| **MonthlyChart**     | Bar chart of daily expenses in selected month            |
+| **CategoryPieChart** | Pie chart of top 10 categories with percent + tooltips   |
+| **DashboardSummary** | Card with Total Expenses, Most Recent, and More          |
 
-
-### 📜 Transaction List with Actions
-
-
-### 📊 Monthly Chart
-
+---
 
 ## 🧩 Project Structure
 
 ```
+
 personal-finance-visualizer/
 ├── app/
 │   ├── api/
 │   │   └── transactions/route.ts       // POST + GET
-│   │   └── transactions/[id]/route.ts // PATCH + DELETE
+│   │   └── transactions/\[id]/route.ts // PATCH + DELETE
 │   └── page.tsx                       // Dashboard
 ├── components/
 │   ├── TransactionForm.tsx
 │   ├── TransactionList.tsx
 │   ├── MonthlyChart.tsx
+│   ├── DashboardSummary.tsx
+│   ├── CategoryPieChart.tsx
 │   └── ui/toaster.tsx
+├── lib/categories.ts
 ├── lib/mongo.ts
 ├── models/Transaction.ts
 ├── .env.local
-```
+
+````
 
 ---
 
@@ -87,9 +106,9 @@ personal-finance-visualizer/
 ### ✅ Step 1: Clone the repo
 
 ```bash
-git clone https://github.com/KishanThorat111/personal-finance-visualizer.git
-cd personal-finance-visualizer
-```
+git clone https://github.com/KishanThorat111/personal-finance-visualizer-stage2.git
+cd personal-finance-visualizer-stage2
+````
 
 ### ✅ Step 2: Install dependencies
 
@@ -115,28 +134,28 @@ Visit: [http://localhost:3000](http://localhost:3000)
 
 ---
 
-## 📅 Development Timeline & Commits
+## 📅 Development Timeline & Commit Log
 
-### Step-by-step commits:
-
-````bash
-git commit -m "feat: initial project setup with Next.js, MongoDB, Tailwind"
-git commit -m "chore: install required libraries and setup shadcn/ui components"
-git commit -m "feat: setup MongoDB connection and Transaction model"
-git commit -m "feat: create API routes for CRUD transactions"
-git commit -m "feat: create transaction form component with react-hook-form"
-git commit -m "feat: create transaction list component with edit/delete actions"
-git commit -m "feat: add monthly bar chart visualization using Recharts"
-git commit -m "feat: build dashboard layout and integrate transaction features"\```
+```bash
+git commit -m "feat: added category field to transactions and category list"
+git commit -m "feat: category-based expense pie chart with top 10 categories"
+git commit -m "style: applied glassmorphism UI to pie chart and dashboard"
+git commit -m "fix: responsive issues for long category names and label overflows"
+git commit -m "feat: dashboard summary card showing total and recent transactions"
+git commit -m "chore: reorganize layout to separate pie chart from monthly chart"
+git commit -m "refactor: fine-tune pie chart size, layout, and hover tooltips"
+git commit -m "style: improved dark mode and UI consistency"
+```
 
 ---
 
-## 🧪 What's Next? (Stage 2 Preview)
+## 🧪 Coming Soon in Stage 3
 
-- 🧾 Category-based tagging
-- 🥧 Category-wise pie chart
-- 📊 Budget vs Actual insights
-- 💡 Dashboard cards (summary, most recent, top category)
+* 📦 Budget planning card
+* 📈 Savings vs Spending line chart
+* 🧠 AI suggestions for overspending
+* 🔍 Search and filter system
+* 🔧 Settings and preferences card
 
 ---
 
@@ -148,11 +167,11 @@ MIT License © 2025 [Kishan Thorat](https://github.com/KishanThorat111)
 
 ## 🤝 Connect
 
-💼 [LinkedIn](https://linkedin.com/in/yourprofile)  
+💼 [LinkedIn](https://linkedin.com/in/yourprofile)
 💻 [GitHub](https://github.com/KishanThorat111)
 
 ---
 
 > Built with ❤️ using Next.js, Tailwind, MongoDB, and Recharts
 
-````
+```
