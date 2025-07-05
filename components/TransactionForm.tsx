@@ -1,38 +1,40 @@
-// components/TransactionForm.tsx
 'use client';
 
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { Combobox } from '@/components/ui/combobox';
 
-export default function TransactionForm({ onSubmit, editing, onUpdate, cancelEdit }: any) {
+export default function TransactionForm({
+  onSubmit,
+  editing,
+  onUpdate,
+  cancelEdit,
+  categories = [],
+}: any) {
   const { register, handleSubmit, reset, setValue } = useForm();
+  const [categoryInput, setCategoryInput] = useState('');
 
   useEffect(() => {
     if (editing) {
       setValue('amount', editing.amount);
-      // Ensure date is formatted correctly for input type="date"
       setValue('date', editing.date.slice(0, 10));
       setValue('description', editing.description);
+      setCategoryInput(editing.category || '');
     } else {
-      // Reset form when editing is cancelled
-      reset({
-        amount: '',
-        date: '',
-        description: ''
-      });
+      reset({ amount: '', date: '', description: '', category: '' });
+      setCategoryInput('');
     }
-  }, [editing, setValue, reset]); // Added reset to dependency array
+  }, [editing, setValue, reset]);
 
   const submit = (data: any) => {
-    if (editing) {
-      onUpdate(data); // Pass only data, ID is already in editing._id
-    } else {
-      onSubmit(data);
-    }
-    reset(); // Reset form after submission
+    const payload = { ...data, category: categoryInput.trim() };
+    if (editing) onUpdate(payload);
+    else onSubmit(payload);
+    reset();
+    setCategoryInput('');
   };
 
   return (
@@ -73,6 +75,16 @@ export default function TransactionForm({ onSubmit, editing, onUpdate, cancelEdi
           {...register('description', { required: true })}
           placeholder="e.g. Grocery, Travel"
           className="rounded-full bg-white/60 shadow-inner focus:ring-2 focus:ring-emerald-500"
+        />
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="category">Category</Label>
+        <Combobox
+          value={categoryInput}
+          onValueChange={setCategoryInput}
+          options={categories}
+          placeholder="Search or type category"
         />
       </div>
 

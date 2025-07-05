@@ -1,13 +1,11 @@
-
-// app/page.tsx
-
-
-
 'use client';
 
 import TransactionForm from '@/components/TransactionForm';
 import TransactionList from '@/components/TransactionList';
 import MonthlyChart from '@/components/MonthlyChart';
+import CategoryPieChart from '@/components/CategoryPieChart';
+import { DashboardSummary } from '@/components/DashboardSummary';
+import { categories as ALL_CATEGORIES } from '@/lib/categories';
 import { useEffect, useRef, useState } from 'react';
 import { Toaster, toast } from '@/components/ui/toaster';
 import { Ban, AlertTriangle } from 'lucide-react';
@@ -60,7 +58,6 @@ export default function Home() {
   const updateTransaction = async (data: any) => {
     if (!editing) return;
     try {
-      // const res = await fetch(`/api/transactions/${editing._id}`, {
       const res = await fetch(`/api/transactions/${editing._id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
@@ -80,7 +77,6 @@ export default function Home() {
 
   const deleteTransaction = async (id: string) => {
     try {
-      // const res = await fetch(`/api/transactions/${id}`, { method: 'DELETE' });
       const res = await fetch(`/api/transactions/${id}`, { method: 'DELETE' });
       if (res.ok) {
         toast('Transaction deleted');
@@ -113,7 +109,9 @@ export default function Home() {
         transition={{ duration: 0.6 }}
         className="sticky top-0 z-10 bg-white/70 dark:bg-slate-900/70 backdrop-blur border-b border-slate-300 dark:border-slate-700 shadow-xl py-4 px-4 sm:px-6 rounded-xl"
       >
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-center tracking-tight drop-shadow-xl font-display">💸 Personal Finance Visualizer</h1>
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-center tracking-tight drop-shadow-xl font-display">
+          💸 Personal Finance Visualizer
+        </h1>
       </motion.header>
 
       <section className="max-w-4xl mx-auto px-2 sm:px-0" ref={formRef}>
@@ -128,6 +126,7 @@ export default function Home() {
             onUpdate={updateTransaction}
             editing={editing}
             cancelEdit={cancelEdit}
+            categories={ALL_CATEGORIES}
           />
         </motion.div>
       </section>
@@ -147,34 +146,46 @@ export default function Home() {
           <p className="text-lg font-semibold">No transactions yet</p>
         </motion.div>
       ) : (
-        <section className="grid grid-cols-1 xl:grid-cols-2 gap-6 px-2 sm:px-0">
+        <>
+          <section className="grid grid-cols-1 xl:grid-cols-2 gap-6 px-2 sm:px-0">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="bg-white/90 dark:bg-slate-800/50 rounded-3xl shadow-xl p-4 sm:p-6 max-h-[550px] overflow-y-auto"
+            >
+
+
+              <TransactionList
+                data={transactions}
+                onDelete={deleteTransaction}
+                onEdit={handleEdit}
+              />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="bg-white/90 dark:bg-slate-800/50 rounded-3xl shadow-xl p-4 sm:p-6 space-y-6"
+            >
+              <DashboardSummary data={transactions} />
+              <MonthlyChart data={transactions} />
+            </motion.div>
+          </section>
+
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="bg-white/90 dark:bg-slate-800/50 rounded-3xl shadow-xl p-4 sm:p-6 overflow-y-auto max-h-[400px]"
+            className="max-w-4xl mx-auto"
           >
-            <TransactionList
-              data={transactions}
-              onDelete={deleteTransaction}
-              onEdit={handleEdit}
-            />
+            <CategoryPieChart data={transactions} />
           </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="bg-white/90 dark:bg-slate-800/50 rounded-3xl shadow-xl p-4 sm:p-6"
-          >
-            <MonthlyChart data={transactions} />
-          </motion.div>
-        </section>
+        </>
       )}
 
       <Toaster />
     </main>
   );
 }
-
-
-

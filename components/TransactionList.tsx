@@ -22,6 +22,8 @@ export default function TransactionList({ data, onDelete, onEdit }: any) {
             <p className="font-bold text-lg">₹{tx.amount}</p>
             <p className="text-sm text-gray-500">{new Date(tx.date).toLocaleDateString()}</p>
             <p className="text-sm text-slate-600 dark:text-slate-300">{tx.description}</p>
+            <p className="text-xs italic text-emerald-600 dark:text-emerald-400">Category: {tx.category || 'Other'}</p>
+
           </div>
           <div className="flex gap-3 items-center">
             <button
