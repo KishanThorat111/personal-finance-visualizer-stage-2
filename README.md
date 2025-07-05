@@ -1,8 +1,3 @@
-Here is your **updated `README.md`** for **Stage 2** of the Personal Finance Visualizer — with all improvements documented and ready to push in your new Stage 2 GitHub repo.
-
----
-
-```markdown
 # 💸 Personal Finance Visualizer — Stage 2
 
 A modern, responsive full-stack web application to **track personal expenses**. Built with **Next.js 14**, **MongoDB**, **Tailwind CSS**, **shadcn/ui**, **Recharts**, and animated with **Framer Motion** — it offers a sleek interface to manage transactions and visualize spending.
@@ -77,27 +72,23 @@ A modern, responsive full-stack web application to **track personal expenses**. 
 
 ## 🧩 Project Structure
 
-```
-
 personal-finance-visualizer/
 ├── app/
-│   ├── api/
-│   │   └── transactions/route.ts       // POST + GET
-│   │   └── transactions/\[id]/route.ts // PATCH + DELETE
-│   └── page.tsx                       // Dashboard
+│ ├── api/
+│ │ └── transactions/route.ts // POST + GET
+│ │ └── transactions/[id]/route.ts // PATCH + DELETE
+│ └── page.tsx // Dashboard
 ├── components/
-│   ├── TransactionForm.tsx
-│   ├── TransactionList.tsx
-│   ├── MonthlyChart.tsx
-│   ├── DashboardSummary.tsx
-│   ├── CategoryPieChart.tsx
-│   └── ui/toaster.tsx
+│ ├── TransactionForm.tsx
+│ ├── TransactionList.tsx
+│ ├── MonthlyChart.tsx
+│ ├── CategoryPieChart.tsx
+│ └── ui/toaster.tsx
 ├── lib/categories.ts
 ├── lib/mongo.ts
 ├── models/Transaction.ts
 ├── .env.local
 
-````
 
 ---
 
@@ -134,28 +125,28 @@ Visit: [http://localhost:3000](http://localhost:3000)
 
 ---
 
-## 📅 Development Timeline & Commit Log
+## 📅 Development Timeline & Commits
+
+### Step-by-step commits:
 
 ```bash
-git commit -m "feat: added category field to transactions and category list"
-git commit -m "feat: category-based expense pie chart with top 10 categories"
-git commit -m "style: applied glassmorphism UI to pie chart and dashboard"
-git commit -m "fix: responsive issues for long category names and label overflows"
-git commit -m "feat: dashboard summary card showing total and recent transactions"
-git commit -m "chore: reorganize layout to separate pie chart from monthly chart"
-git commit -m "refactor: fine-tune pie chart size, layout, and hover tooltips"
-git commit -m "style: improved dark mode and UI consistency"
+git commit -m "feat: added category field to transactions and predefined categories list"
+git commit -m "feat: implemented top 10 category-wise pie chart with Recharts"
+git commit -m "style: added glassmorphism UI to pie chart card"
+git commit -m "fix: handled long labels with tooltip on hover"
+git commit -m "refactor: adjusted layout for better alignment with monthly chart"
+git commit -m "style: matched glassmorphism colors with overall dashboard"
+git commit -m "fix: tweaked pie chart size for better readability"
 ```
 
 ---
 
-## 🧪 Coming Soon in Stage 3
+## 🧪 What's Next? (Stage 3 Preview)
 
-* 📦 Budget planning card
-* 📈 Savings vs Spending line chart
-* 🧠 AI suggestions for overspending
-* 🔍 Search and filter system
-* 🔧 Settings and preferences card
+* 🧩 Add dashboard cards for Total, Recent, and Budget
+* 💹 Budget vs Actual with Line/Bar chart
+* 🔍 Filter by category/date
+* ⚙️ Settings card + visual insights
 
 ---
 
@@ -174,4 +165,7 @@ MIT License © 2025 [Kishan Thorat](https://github.com/KishanThorat111)
 
 > Built with ❤️ using Next.js, Tailwind, MongoDB, and Recharts
 
+```
+
+Let me know if you'd like this version directly saved to a `README.md` file or customized for Stage 3 when you're ready!
 ```
