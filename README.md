@@ -69,26 +69,28 @@ A modern, responsive full-stack web application to **track personal expenses**. 
 | **DashboardSummary** | Card with Total Expenses, Most Recent, and More          |
 
 ---
-
 ## 🧩 Project Structure
+
+```
 
 personal-finance-visualizer/
 ├── app/
-│ ├── api/
-│ │ └── transactions/route.ts // POST + GET
-│ │ └── transactions/[id]/route.ts // PATCH + DELETE
-│ └── page.tsx // Dashboard
+│   ├── api/
+│   │   └── transactions/route.ts       // POST + GET
+│   │   └── transactions/\[id]/route.ts // PATCH + DELETE
+│   └── page.tsx                       // Dashboard
 ├── components/
-│ ├── TransactionForm.tsx
-│ ├── TransactionList.tsx
-│ ├── MonthlyChart.tsx
-│ ├── CategoryPieChart.tsx
-│ └── ui/toaster.tsx
+│   ├── TransactionForm.tsx
+│   ├── TransactionList.tsx
+│   ├── MonthlyChart.tsx
+│   ├── CategoryPieChart.tsx
+│   └── ui/toaster.tsx
 ├── lib/categories.ts
 ├── lib/mongo.ts
 ├── models/Transaction.ts
 ├── .env.local
 
+````
 
 ---
 
