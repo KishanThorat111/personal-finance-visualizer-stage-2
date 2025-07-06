@@ -1,3 +1,4 @@
+// lib/categories.ts
 export const categories = [
   'Groceries', 'Vegetables & Fruits', 'Milk & Dairy', 'Toiletries', 'Cooking Gas', 'Drinking Water',
   'Rent', 'Electricity', 'Water Bill', 'Mobile Recharge', 'Internet', 'Maintenance', 'Cable TV / DTH', 'Housekeeping',

@@ -31,7 +31,7 @@ A modern, responsive full-stack web application to **track personal expenses**. 
 
 ## 🌐 Live Demo
 
-🔗 [Live App on Vercel](https://your-vercel-stage2-link.vercel.app)
+🔗 [Live App on Vercel](https://personal-finance-visualizer-stage-2-seven.vercel.app/)
 
 📦 [GitHub Repository (Stage 2)](https://github.com/KishanThorat111/personal-finance-visualizer-stage2)
 
@@ -160,7 +160,7 @@ MIT License © 2025 [Kishan Thorat](https://github.com/KishanThorat111)
 
 ## 🤝 Connect
 
-💼 [LinkedIn](https://linkedin.com/in/yourprofile)
+💼 [LinkedIn](https://linkedin.com/in/kishanthorat)
 💻 [GitHub](https://github.com/KishanThorat111)
 
 ---

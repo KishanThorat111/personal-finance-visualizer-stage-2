@@ -1,3 +1,5 @@
+// components/CategoryPieChart.tsx
+
 'use client';
 
 import {
